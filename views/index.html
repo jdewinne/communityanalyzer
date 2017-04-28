@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Community analyzer</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/jquery-3.2.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.tablesorter.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.tabletoCSV.js') }}"></script>
+  </head>
+  <body>
+    <p>Because a manager only knows Excel: <button id="export" data-export="export">Export</button>
+      <ul><li>On Safari: Click save as... to save the content.</li></ul></p>
+    {{ text|markdown }}
+    <script>
+		$( "table" ).addClass( "tablesorter" );
+		$(document).ready(function() 
+		    { 
+		        $( "table" ).tablesorter();
+            $("#export").click(function(){
+              $("table").tableToCSV();
+            });
+		    } 
+		); 
+	</script>
+  </body>
+</html>
