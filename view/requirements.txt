@@ -2,3 +2,4 @@ Flask
 Flask-Misaka
 Jinja2
 requests
+requests_cache
